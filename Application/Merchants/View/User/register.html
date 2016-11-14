@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云狄登录页面</title>
+<link href="__PUBLIC__/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="warp">
+  <header class="head">
+     <ul class="login">
+       <li><a href="index.html" target="_blank">云狄官网</a></li><span>|</span>
+       <li><a href="#" target="_blank">帮助</a></li><span>|</span>
+       <li><a href="#" target="_blank">客服</a></li><span>|</span>
+     </ul>
+  </header>
+  <section class="logo">
+   <img src="__PUBLIC__/images/logo.jpg" width="145" height="43"  alt=""/> 
+   <p>护航中小型企业</p>
+  </section>
+  <section class="de">
+    <div style="color:#f00;text-align:center;">{{$Think.get.error}}</div>
+     <form action="" method="post"> 
+       <input type="text" placeholder="手机号" name="phone" class="deng2" autocomplete="off" />
+        <p>&nbsp;<br /></p>
+       <input type="password" name="keyword" placeholder="设置密码" class="deng1" />
+        <p>&nbsp;<br /></p>
+       <input type="password" name="keywords" placeholder="确认密码" class="deng1" />
+                      <p>&nbsp;<br /></p>
+        <div>
+          <input disabled="disabled" type="password" name="keyword" placeholder="验证码" class="code" />
+          <button type="button" disabled="disabled" src="1111" style='width: 100px;height: 40px;position: relative;top: -45px;left: 225px;cursor:pointer;'>获取验证码</button>
+        </div>
+        <p>&nbsp;<br /></p>
+       <input class="cheak" type="checkbox" />&nbsp;&nbsp;&nbsp;<span>同意云狄<a href="#" target="_blank" style="color:#0065CB"> 《服务协议》</a></span> <a href="login.html" target="_blank" style="float:right; text-decoration:underline;">已有账号</a>
+                      <p>&nbsp;<br /></p>
+       <input type="submit" value="注册" class="but"/>   
+     </form>
+                      <p>&nbsp;<br /></p>
+  </section>
+  <footer>
+     广州云狄建站科技有限公司 版权所有<br />
+     粤ICP备09116842号
+ </footer>
+</div>
+</body>
+</html>
