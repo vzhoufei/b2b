@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云狄B2B网站首页</title>
+<link href="__PUBLIC__/css/index.css" rel="stylesheet" type="text/css">		
+<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
+</head>
+
+<body>
+<div class="warp">
+  <header class="head">
+    <nav class="nav">
+      <ul> 
+        <li><a href="{{:U('Merchants/User/register')}}" target="_blank">注册</a></li>
+        <li><a href="{{:U('Merchants/User/login')}}" target="_blank">登录</a></li><span>|</span>
+        <li><img src="__PUBLIC__/images/index1.jpg" width="15" height="30"  alt=""/>&nbsp;&nbsp;<a href="#" target="_blank">我的订单</a></li><span>|</span>
+        <li><a href="#" target="_blank">购物车</a></li><span>|</span>
+        <li><a href="#" target="_blank">投诉举报</a></li><span>|</span>
+        <li><a href="#" target="_blank">客服中心</a></li><span>|</span>
+        <li><a href="#" target="_blank">帮助</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="logo">
+       <img src="__PUBLIC__/images/logo.jpg" width="145" height="43"  alt=""/> 
+       <p>护航中小型企业</p>
+      </section>
+  <section class="search">
+   <div id="tab">
+  <div class="tabList">
+	<ul>
+		<li class="cur">产品</li>
+		<li>公司</li>
+	</ul>
+  </div>
+    
+  <div class="tabCon">
+	<div class="cur">
+        <form action="{{:U('/Home/Product')}}" target="_blank" method="get">
+          <input type="text" name="keyword" class="ssk" placeholder="连衣裙" />
+          <input type="submit" value="" class="but" />
+        </form>
+        <dl>
+           <dd><a href="#" target="_blank" style="color:#008cba">连衣裙</a></dd>
+           <dd><a href="#" target="_blank">卫衣</a></dd>
+           <dd><a href="#" target="_blank">长袖T恤 </a></dd>
+           <dd><a href="#" target="_blank">斜跨包  </a></dd>
+           <dd><a href="#" target="_blank">秋季套装  </a></dd>
+           <dd><a href="#" target="_blank"> 牛仔短裙  </a></dd>
+           <dd><a href="#" target="_blank">打底裤  </a></dd>
+      </dl>
+    </div>
+    
+    
+	<div style="display:none">
+       <form action="#" target="_blank" method="get">
+         <input type="text"  name="keyword" placeholder="云狄网络" class="ssk"/>
+         <input type="submit" value="" class="but" />
+       </form>
+      <dl style="display:none;">
+           <dd><a href="#" target="_blank" style="color:#008cba">连衣裙</a></dd>
+           <dd><a href="#" target="_blank">连衣裙</a></dd>
+           <dd><a href="#" target="_blank">连衣裙</a></dd>
+           <dd><a href="#" target="_blank">连衣裙</a></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+  </section>
+  <section class="side">
+    <div class="side1">
+     <dl class="left">
+      <dt><a href="products.html" target="_blank">产品</a></dt>
+      <dd><a href="{{:U('/home/Detail')}}" target="_blank"><img src="__PUBLIC__/images/index2.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="{{:U('/home/Detail')}}" target="_blank"><img src="__PUBLIC__/images/index3.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="{{:U('/home/Detail')}}" target="_blank"><img src="__PUBLIC__/images/index4.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="{{:U('/home/Detail')}}" target="_blank"><img src="__PUBLIC__/images/index5.jpg" width="136" height="146"  alt=""/></a>
+             <p></p>
+           <a href="#" target="_blank"><img src="__PUBLIC__/images/index6.jpg" width="136" height="146"  alt=""/></a>
+      </dd>
+      <dd><a href="#" target="_blank"><img src="__PUBLIC__/images/index2.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="#" target="_blank"><img src="__PUBLIC__/images/index3.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="#" target="_blank"><img src="__PUBLIC__/images/index4.jpg" width="186" height="310"  alt=""/></a></dd>
+      <dd><a href="#" target="_blank"><img src="__PUBLIC__/images/index5.jpg" width="136" height="146"  alt=""/></a>
+             <p></p>
+           <a href="#" target="_blank"><img src="__PUBLIC__/images/index6.jpg" width="136" height="146"  alt=""/></a>
+      </dd>
+    </dl>
+     <div class="right">
+       <div class="title">资讯</div>
+       <ul>
+         <li>
+            <a href="#" target="_blank"><img src="__PUBLIC__/images/index7.jpg" width="360" height="228"  alt=""/></a>
+            <a href="#" target="_blank" class="a1">云狄网挂牌仪式</a><br />
+            <a href="#" target="_blank" class="a2">联系落实相关单位领导讲话、时间安排、揭牌场地位...</a> <br />
+            <time>2016/12/28</time>
+         </li>
+         <li>
+            <a href="#" target="_blank"><img src="__PUBLIC__/images/index8.jpg" width="360" height="228"  alt=""/></a>
+            <a href="#" target="_blank" class="a1">云狄网挂牌仪式</a><br />
+            <a href="#" target="_blank" class="a2">联系落实相关单位领导讲话、时间安排、揭牌场地位...</a> <br />
+            <time>2016/12/28</time>
+         </li>
+       </ul>
+     </div>
+    </div>
+  </section>
+  <footer>
+     广州云狄建站科技有限公司 版权所有<br />
+     粤ICP备09116842号
+ </footer>
+</div> 
+</body>
+</html>
+
