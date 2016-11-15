@@ -1,0 +1,22 @@
+<include file="header" />
+  <section class="de">
+    <div id="error" style="color:#f00;text-align:center;">{{$Think.get.error}}</div>
+     <form action="{{:U('User/register')}}" method="post" onsubmit="return mysubmit();"> 
+       <input type="text" placeholder="手机号" name="phone" class="deng2" autocomplete="off" onchange="phone_pass(this, '{{:U('User/user')}}');" />
+        <p>&nbsp;<br /></p>
+       <input type="password" name="keyword" placeholder="设置密码" class="deng1" />
+        <p>&nbsp;<br /></p>
+       <input type="password" name="keywords" placeholder="确认密码" class="deng1" />
+                      <p>&nbsp;<br /></p>
+        <div>
+          <input type="hidden" name="modify" value="2" />
+          <input  type="text" name="code" placeholder="验证码" class="code" onchange="yzmyz('{{:U('User/validation')}}');" />
+          <button type="button" disabled="disabled" id="button" onclick="codes('{{:U('User/code')}}', '2');"  style='width:120px;height:40px;position: relative;top:-45px;left:205px;cursor:pointer;'>获取验证码</button>
+        </div>
+        <p>&nbsp;<br /></p>
+       <input type="submit" value="找回密码"  id="subss"  class="but"/>   
+     </form>
+                      <p>&nbsp;<br /></p>
+  </section>
+<include file="footer" />
+  

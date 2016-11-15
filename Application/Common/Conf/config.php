@@ -11,6 +11,7 @@ return array(
     'DB_NAME'               =>      'ydb2b',          	          	// 数据库名
     'DB_USER'               =>      'root',      		          	// 用户名
     'DB_PWD'                =>      '',                       		// 密码
+    'DB_BIND_PARAM'         =>      true,                           //参数自动绑定
     'DB_PREFIX'             =>      'yd_',    		            	// 数据库表前缀
     'URL_MODEL'             =>      2,          		          	//重写模式
    'SHOW_PAGE_TRACE'       =>      true,       		          		//开启页面trace
