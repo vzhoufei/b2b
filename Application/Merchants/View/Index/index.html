@@ -1,8 +1,16 @@
-<html>
-<div style="float:right;"><a href="{{:U('User/exit_login')}}">退出</a></div>
-
-<h2 style="width:200px;margin:0 auto;line-height:800px;text-align:center;">欢迎光临!</h2>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>admin后台管理中心</title>
+	<style type="text/css"></style>
+</head>    
+    <frameset rows="90,*" cols="*" frameborder="no" border="0" framespacing="0" >
+    <frame src="{{:U('Public/header')}}" id="topFrame" scrolling="no">
+    <frameset cols="28%,*" id="bodyFrame"  frameborder="no" border="0" framespacing="0" >
+        <frame src="{{:U('Public/left')}}" name="left" id="left"  scrolling="no">
+        <frame src="{{:U('Public/index')}}" name="right" id="right"  scrolling="auto"></frame>
+    </frameset>
+</frameset>
 
 </html>

@@ -104,6 +104,7 @@ Class UserController extends Controller
                 if(!I('post.keyword') || !I('post.keywords')){ $this->redirect('register',array('error'=>'密码不能为空！'));}
                 if(I('post.keyword') != I('post.keywords')){ $this->redirect('register',array('error'=>'密码不一致！'));}
                 if(S('code.'.I('post.phone').'.code') != I('post.code')){ $this->redirect('register',array('error'=>'验证码错误！'));}
+                if(!I('post.check')){ $this->redirect('register',array('error'=>'您必须同意服务协议！'));}
                $user_m = M('Users');
                $pwd = md5(I('post.keywords'));//用户密码
                $phone = $data['mobile'] = I('post.phone');//手机号

@@ -14,4 +14,6 @@ class CommonController extends Controller
     		session('merchantsuser',$user->where('id =%d',array(cookie('yd_merchantsuser')['0']))->find());
     	}
     }
+
+
 }

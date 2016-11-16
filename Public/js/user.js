@@ -45,8 +45,10 @@ function mysubmit()
 		'phone' :$('input[name=phone]').val(),
 		'pwd'	:$('input[name=keyword]').val(),
 		'pwd2'	:$('input[name=keywords]').val(),
-		'code'	:$('input[name=code]').val()
+		'code'	:$('input[name=code]').val(),
+		'check' :$('input[name=check]').attr('checked'),
 	};
+
 	if(!pattern.test(data['phone'])){
 		$('#error').html('手机号不合法！');
 		return false;
@@ -62,7 +64,11 @@ function mysubmit()
 	}else if(!data['code']){
 		$('#error').html('请填写验证码！');
 		return false;
+	}else if(!data['check']){
+		$('#error').html('您必须同意服务协议！');
+		return false;
 	}
+
 
 	
 	// return false;
