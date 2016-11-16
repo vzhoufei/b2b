@@ -7,7 +7,7 @@ use Think\Controller;
 * 2016-11-15
 * 商户首页
 */
-class IndexController extends CommonController 
+class ColumnController extends CommonController 
 {
 	
     public function index()
