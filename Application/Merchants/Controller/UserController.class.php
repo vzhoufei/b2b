@@ -9,57 +9,89 @@ Class UserController extends Controller
 {
 
 
-/**
-  * 用户登录
-  *@author 周飞
-  */
-  public function login()
-  {
-      if(IS_POST){
-          // if(session('merchantsuser')){$this->redirect('Index/index');}
+    public function index(){$this->redirect('login');}
 
-        $name = I('account');//用户名
-        $pwd = md5(I('password'));//用户密码
-        $check = I('check')?604800:3600;
-        if($name && $pwd){
-          $user_m = M('Users');
-          $str = $user_m->where("name = '%s' or email = '%s' or mobile = '%s'",array($name,$name,$name))->getField('password_rand');//查询用户随机窜
-          if($str){
-            $pass = md5($pwd.$str);//用户正式密码
-            $user = $user_m->where("(name = '%s' or email = '%s' or mobile = '%s') and password = '%s'",array($name,$name,$name,$pass))->find();
-            if($user){
-              if((cookie('yd_merchantsuser')['0'] != $user['id']) || (time() - cookie('yd_merchantsuser')['2'] > cookie('yd_merchantsuser')['1'])){
-                  cookie('merchantsuser',array($user['id'],$check,time()),array('expire'=>$check,'prefix'=>'yd_'));
+
+    /**
+      * 用户登录
+      *@author 周飞
+      */
+      public function login()
+      {
+          if(IS_POST){
+              // if(session('merchantsuser')){$this->redirect('Index/index');}
+
+            $name = I('account');//用户名
+            $pwd = md5(I('password'));//用户密码
+            $check = I('check')?604800:3600;
+            if($name && $pwd){
+              $user_m = M('Users');
+              $str = $user_m->where("name = '%s' or email = '%s' or mobile = '%s'",array($name,$name,$name))->getField('password_rand');//查询用户随机窜
+              if($str){
+                $pass = md5($pwd.$str);//用户正式密码
+                $user = $user_m->where("(name = '%s' or email = '%s' or mobile = '%s') and password = '%s'",array($name,$name,$name,$pass))->find();
+                if($user){
+                  if((cookie('yd_merchantsuser')['0'] != $user['id']) || (time() - cookie('yd_merchantsuser')['2'] > cookie('yd_merchantsuser')['1'])){
+                      cookie('merchantsuser',array($user['id'],$check,time()),array('expire'=>$check,'prefix'=>'yd_'));
+                  }
+                  session('merchantsuser',$user);
+                  $this->login_log($user['id']);
+                  $result['url'] = U('Index/index');
+                  $result['res'] = 1;
+                  $this->ajaxReturn($result);
+                }else{
+                  $this->ajaxReturn('密码错误！');
+                }
+
+              }else{
+                $this->ajaxReturn('用户名不存在！');
               }
-              session('merchantsuser',$user);
-              $result['url'] = U('Index/index');
-              $result['res'] = 1;
-              $this->ajaxReturn($result);
-            }else{
-              $this->ajaxReturn('密码错误！');
-            }
 
+            }else{
+
+            }
           }else{
-            $this->ajaxReturn('用户名不存在！');
+              $this->assign('title','用户登录');
+              $this->display();
           }
 
-        }else{
-
-
-        }
-      }else{
-          $this->assign('title','用户登录');
-          $this->display();
+        
       }
 
-    
-  }
-       /*生成验证码*/
-       public function img(){ //取消了
-           $Verify = new \Think\Verify();
-           $Verify->entry();
-       }
 
+
+
+      /**
+       * 登陆日志
+       *@author 周飞
+       */
+      public function login_log($uid)
+      {
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+       //初始化
+        $curl = curl_init();
+        //设置抓取的url
+        curl_setopt($curl, CURLOPT_URL, 'http://ip.taobao.com/service/getIpInfo.php?ip='.$ip);
+        //设置头文件的信息作为数据流输出
+        // curl_setopt($curl, CURLOPT_HEADER, 1);
+        //设置获取的信息以文件流的形式返回，而不是直接输出。
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        //执行命令
+        $data = curl_exec($curl);
+        //关闭URL请求
+        curl_close($curl);
+        //显示获得的数据
+        $address = json_decode($data,true);
+        $datas['address'] = $address['data']['country'].$address['data']['area'].$address['data']['region'].$address['data']['city'].$address['data']['county'].$address['data']['isp'];
+        $datas['ip'] = $ip;
+        $datas['uid'] = $uid;
+        $datas['time'] = time();
+        $log_m = M('Loginlog');
+        $loginlog = $log_m->add($datas);
+        return $loginlog;
+      }
+      
        /**
         * 用户注册
         *@author 周飞
@@ -94,6 +126,19 @@ Class UserController extends Controller
                     $this->display();
             }
        }
+
+
+       // 退出登录
+       public function exit_login()
+       {
+
+          session('merchantsuser',null);
+          cookie('yd_merchantsuser',null);
+          $this->redirect('login');
+       }
+
+
+
 
        /**
         * 发送验证码

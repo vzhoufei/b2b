@@ -1,5 +1,5 @@
 <?php 
-namespace home\Controller;
+namespace Home\Controller;
 use Think\Controller;
 /**
 * 2016年11月15日
