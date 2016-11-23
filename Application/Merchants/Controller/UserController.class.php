@@ -99,7 +99,7 @@ Class UserController extends Controller
        public function register()
        {
             if(IS_POST){
-                $pattern = "/^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$/";
+                $pattern = "/^(13[0-9]|15[0|3|6|7|8|9]|18[0|1|6|8|9])\d{8}$/";
                 if(!preg_match($pattern,I('post.phone'))){ $this->redirect('register',array('error'=>'手机号码不合法！'));}
                 if(!I('post.keyword') || !I('post.keywords')){ $this->redirect('register',array('error'=>'密码不能为空！'));}
                 if(I('post.keyword') != I('post.keywords')){ $this->redirect('register',array('error'=>'密码不一致！'));}
@@ -150,7 +150,8 @@ Class UserController extends Controller
             if(IS_AJAX){
                 $phone = I('post.phone');
                 if(I('post.p') == '1'){$sms = 'SMS_25660338';}elseif(I('post.p') == '2'){$sms = 'SMS_25585333';}//模板
-                $pattern = "/^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$/";
+                //$pattern = "/^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$/";
+                $pattern = "/^(13[0-9]|15[0|3|6|7|8|9]|18[0|1|6|8|9])\d{8}$/";
                 if(!preg_match($pattern,$phone)){$this->ajaxReturn('手机号码不合法！');}
                 if((time() - S('code.'.$phone.'.time')) < 60 ){$this->ajaxReturn('验证码一分钟只能发送一次！还有'.(60 - (time() - S('code.'.$phone.'.time'))).'秒！');}
                 $res = Alicode($phone,$sms,'云狄网络');//

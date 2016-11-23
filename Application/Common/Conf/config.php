@@ -7,10 +7,10 @@ return array(
     'DEFAULT_CONTROLLER'    =>      'Index',
     'DEFAULT_ACTION'        =>      'index', 						// 默认操作名称
     'DB_TYPE'               =>     'mysql',    	 	              	// 数据库类型
-    'DB_HOST'               =>      'localhost', 	          		// 服务器地址
+    'DB_HOST'               =>      '192.168.1.88:3306', 	          		// 服务器地址
     'DB_NAME'               =>      'ydb2b',          	          	// 数据库名
     'DB_USER'               =>      'root',      		          	// 用户名
-    'DB_PWD'                =>      '',                       		// 密码
+    'DB_PWD'                =>      '123456',                       		// 密码
     'DB_BIND_PARAM'         =>      true,                           //参数自动绑定
     'DB_PREFIX'             =>      'yd_',    		            	// 数据库表前缀
     'URL_MODEL'             =>      2,          		          	//重写模式
